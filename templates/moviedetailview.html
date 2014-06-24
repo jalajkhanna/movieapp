@@ -1,0 +1,88 @@
+ <%
+var found=0;
+
+_.each(collection.models, function(m)
+		{
+			
+			
+			
+			var cmp=m.get('name');
+			
+			
+		if(cinename1==cmp)
+		{ 
+			%><table class="table table-bordered table-hover"><th>movie</th><th>show times</th> <%
+			_.each(collection1.models,function(k)
+			{
+
+
+			var mid=k.get('mid');
+			var arr=m.get('movies');
+			
+
+			for(i=0;i<arr.length;i++)
+			{
+				if(arr[i].movieid==mid)
+					{ 
+			
+			%>
+			<tr><td class="movie"><%=k.get('moviename')%>  </td>
+			<td class="time"><%=arr[i].movietime%></td>
+			<td>
+				<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1">edit</button></td></tr>
+			<%}}
+				
+			
+			})%>
+			</table>
+		
+			<%found=1;}
+		
+			})
+			if(found==0){%>
+			<table class="table table-bordered table-hover"><th>movie</th><th>show times</th>
+			</table>
+		<!-- 	<button id="newrow" class="btn">add new rows</button> -->
+
+			<%}%>
+
+ <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  	<div class="modal-dialog">
+    	<div class="modal-content">
+	      	<div class="modal-header">
+	        	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	        	<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+	      	</div>
+	      	<div class="modal-body">
+	      		<label>Enter new movie name</label><input class="form-control" id="newmname"></input>
+	      		<label>Enter timings</label><input class="form-control" id="newmtime"></input>
+	     	 </div>
+	     	 <div class="modal-footer">
+	       		 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        	 <button type="button" class="btn btn-primary" id="addrow" data-dismiss="modal">Save changes</button>
+	      	  </div>
+    	</div>
+ 	</div>
+</div>
+				<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">add row</button>
+
+
+
+	<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  	<div class="modal-dialog">
+    	<div class="modal-content">
+	      	<div class="modal-header">
+	        	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	        	<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+	      	</div>
+	      	<div class="modal-body">
+	      		<label>Enter movie name</label><input class="form-control" id="mname"></input>
+	      		<label>Enter movie time</label><input class="form-control" id="mtime"></input>
+	     	 </div>
+	     	 <div class="modal-footer">
+	       		 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        	 <button type="button" class="btn btn-primary edit-button"  data-dismiss="modal">Save changes</button>
+	      	  </div>
+    	</div>
+ 	</div>
+</div>

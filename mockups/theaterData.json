@@ -1,0 +1,54 @@
+[
+        {
+            "id":1,
+            "name":"PVR",
+            "movies":
+             
+            [
+
+            {
+                "movieid":1,
+                "movietime":"22:00"
+            },
+            {
+            "movieid":3,
+            "movietime":"11:45,17:34,23:04"
+            }
+
+            ]
+
+        },
+        {
+            "movieid":2,
+            "name":"Cinemax",
+            "movies":
+           
+            [
+            {
+             "movieid":6,
+            "movietime":"10:00,15:30,22:00"
+            },
+            {
+            "movieid":4,
+            "movietime":"11:00,11:30,16:56,22:54"
+            }
+            ]
+            
+        },
+        
+        {
+            "id":3,
+            "name":"IMAX",
+            "movies":
+            
+            [
+            {
+            "movieid":2,
+            "movietime":"10:00,13:00,21:00"
+            }
+            ]
+           
+        }
+        
+        
+]
