@@ -1,3 +1,4 @@
+
 define([
   'jquery',
   'lodash',
@@ -6,16 +7,24 @@ define([
   'tview',
   'bootstrap'
 ], function($, _, Backbone, template,abc){
-
+  var ev1,selectedmovie,selecttime;
   var moviedetailview = Backbone.View.extend({
     moviedetailtemplate: _.template(template),
   
      events:{
       "click #addrow": "newrow",
       "click .edit-button": "onClick",
+      "click .edit": "editClick"
      
     },
 
+    editClick:function(ev){
+       selectedmovie=$(ev.target).parent().parent().find('.movie')[0].innerText;
+       selecttime=$(ev.target).parent().parent().find('.time')[0].innerText;
+       mname.value=selectedmovie;
+       mtime.value=selecttime;
+       ev1=ev;
+    },
     removeview:function()
   {
    
@@ -30,10 +39,10 @@ define([
 
     },
 
-   onClick: function (ev) {
 
-          $('.movie')[0].innerText=mname.value;
-          $('.time')[0].innerText=mtime.value;
+   onClick: function () {
+        $(ev1.target).parent().parent().find('.movie')[0].innerText=mname.value;
+        $(ev1.target).parent().parent().find('.time')[0].innerText=mtime.value;
 
      },
 

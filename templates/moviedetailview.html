@@ -29,7 +29,7 @@ _.each(collection.models, function(m)
 			<tr><td class="movie"><%=k.get('moviename')%>  </td>
 			<td class="time"><%=arr[i].movietime%></td>
 			<td>
-				<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal1">edit</button></td></tr>
+				<button class="btn btn-primary btn-lg edit" data-toggle="modal" data-target="#myModal1">edit</button></td></tr>
 			<%}}
 				
 			
@@ -76,7 +76,7 @@ _.each(collection.models, function(m)
 	        	<h4 class="modal-title" id="myModalLabel">Modal title</h4>
 	      	</div>
 	      	<div class="modal-body">
-	      		<label>Enter movie name</label><input class="form-control" id="mname"></input>
+	      		<label>Enter movie name</label><input class="form-control" id="mname" ></input>
 	      		<label>Enter movie time</label><input class="form-control" id="mtime"></input>
 	     	 </div>
 	     	 <div class="modal-footer">
