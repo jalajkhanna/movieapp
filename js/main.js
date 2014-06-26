@@ -11,6 +11,7 @@ require.config({
     bootstrap: 'libs/bootstrap/bootstrap',
     // Require.js plugins
     text: 'libs/require/text',
+    validate:'libs/jquery.validate.min',
     events: 'event',
 
 

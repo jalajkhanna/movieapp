@@ -3,22 +3,42 @@ define([
   'lodash',
   'backbone',
   'text!templates/theatersView.html',
-  'bootstrap'
+  'bootstrap',
+  'validate'
 ], function($, _, Backbone, template){
 
   var theatersView = Backbone.View.extend({
     theatersTemplate: _.template(template),
     events:{
       "click #addcinema": "addnewrow",
-      "click .cinemalist": "cinemalistOnChange"
+      "click .cinemalist": "cinemalistOnChange",
+      "click #addrwbtn" : "addr"
     },
+    addr:function(){ 
+        cname.value="";
+        $("#frmaddcine").validate({
+        rules:{
+          cname:{  required: true}
+        },
+        messages:{
+          cname:{
+            required: 'name required'
+        }
+        },
+        submitHandler: function() { alert("Submitted!"); }
+      });
+     },
     addnewrow:function(){   
+      
       var tab=document.getElementById('cinelists');
       var lastRowIndex = tab.rows.length+1;
       var appstr="<tr><td id=" +lastRowIndex + " class='cinemalist'>"+cname.value+"</td></tr>";
       $('.table').append(appstr);
 
     },
+ 
+   
+   
     cinemalistOnChange: function(e){
 
     var selectmenu=document.getElementById(e.currentTarget.id);
@@ -37,7 +57,9 @@ define([
     render: function(){
       
       $(this.el).html(this.theatersTemplate({collection: this.collection}));
+
     }
   });
+
   return theatersView;
 });
